@@ -1,0 +1,19 @@
+---
+# defaults file for health-check
+
+# server type
+check_proto_type: http
+
+initial_delay: 0
+delay_between_tries: 5
+max_retries: 10
+timeout: 10
+
+http_url: ''
+http_headers: null
+http_expected_status: 200
+http_expected_regexp: null
+
+tcp_address: localhost
+tcp_port: 8080
+

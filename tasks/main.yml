@@ -1,0 +1,18 @@
+---
+# tasks file for health-check
+- name: http proto health check
+  health_check:
+    url: "{{ http_url }}"
+    initial_delay: "{{ initial_delay }}"
+    delay_between_tries: "{{ delay_between_tries }}"
+    max_retries: "{{ max_retries }}"
+  when: check_proto_type == 'http'
+
+- name: tcp proto health check
+  port_checker_tcp:
+    address: "{{ tcp_address }}"
+    port: "{{ tcp_port }}"
+    initial_delay: "{{ initial_delay }}"
+    delay_between_tries: "{{ delay_between_tries }}"
+    max_retries: "{{ max_retries }}"
+  when: check_proto_type == 'tcp'
